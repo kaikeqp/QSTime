@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Kaike de Santana">
+	
+	<!-- Bootstrap CSS -->
+	<link rel='stylesheet' type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+
+	<title>Criar Time</title>
+</head>
+<body>
+	<div th:replace="fragmento/header :: cabecalho"></div>
+
+
+	<div class="container mt-5">
+		<!--Nome Jogador-->
+		<form method="post" action="/time/criar" th:object="${criarTime}" autocomplete="off">
+		<div class="row">
+		<div class="col-md-6 form-group offset-md-3">
+			<label>Nome:</label>
+			<input class="form-control" placeholder="Ex: Juventus" th:field="*{nome}">
+		</div>
+		</div>
+		
+		<!-- Nivel ->
+		<form method="post" action="/criar" th:object="${criarJog}" autocomplete="off">
+		<div class="row">
+		<div class="col-md-6 form-group offset-md-3">
+			<label for="customRange3" class="form-label">Nivel do Jogador:</label>
+			<input type="range" class="form-range" id="rangeInput" name="rangeInput" min="0" max="5" step="0.5" value="0"
+      			 oninput="amount.value=rangeInput.value">       			
+      		<output id="amount" name="amount" for="rangeInput">0</output>
+		</div>
+		</div> -->
+      	
+      	
+      	<!-- Cor -->	
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3 mt-3">
+  			<label>Selecione a cor:</label>
+			<select class="form-control" th:field="*{cor}">
+			
+				<option th:each="cor: ${T(com.projeto.api.enuns.Cor).values()}" 
+				th:value="${cor}" th:text="${cor}"></option>
+			</select>
+			</div>
+		</div>
+		
+		
+		<div class="row">
+		<div class="col-md-6 form-group offset-md-5 mt-3">
+			<button type="submit" class="btn btn-success">SALVAR</button>
+			<a class="btn btn-outline-danger">VOLTAR</a>
+		</div>
+		</div>
+		</form>
+		
+		
+	</div>
+	
+
+
+
+
+<!--Scripts-->
+<script src='/webjars/bootstrap/5.0.0/js/bootstrap.min.js'></script>
+</body>
+</html>

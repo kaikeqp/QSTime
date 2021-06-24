@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Kaike de Santana">
+	
+	<!-- Bootstrap CSS -->
+	<link rel='stylesheet' type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+
+	<title>Criar Jogador</title>
+</head>
+<body>
+	<div th:replace="fragmento/header :: cabecalho"></div>
+	
+	<div class="container mt-5">
+	
+	<h3>Lista de Times</h3>
+	<hr>
+	
+	<table class="table table-bordered table-hover">
+		<thead class="table-light">
+			<th scope="col">Nome</th>
+			<th scope="col">Cor</th>
+			<th scope="col">ID</th>
+			<th scope="col">Ação</th>
+		</thead>
+		
+		<tbody>
+			<tr scope="row" th:each="item : ${listTime}">
+				
+				<td th:text="${item.nome}"></td>
+				<td th:text="${item.cor}"></td>
+				<td th:text="${item.cod_time}"></td>
+				
+				<td>
+					<a class="btn btn-primary" th:href="@{/time/alterar/{id}(id=${item.cod_time})}">Editar</a>
+					<a class="btn btn-danger" th:href="@{/time/excluir/{id}(id=${item.cod_time})}">Excluir</a>
+					<a class="btn btn-success" th:href="@{/time/{id}/(id=${item.cod_time})}">Jogadores</a>
+									
+				</td>
+			</tr>
+		</tbody>	
+	
+	
+	</table>
+	
+	
+	
+	
+	
+	</div>
+	<!--SCRIPTS-->
+	<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+	<script src='/webjars/bootstrap/5.0.0/js/bootstrap.min.js'></script>
+</body>
+</html>
