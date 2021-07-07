@@ -74,19 +74,19 @@ public class MeuTimeController {
 		return mv;
 	}
 	
-	//ADICIONAR JOGADORES
-	@PostMapping
-	public ModelAndView addJog(@PathVariable("id") Integer id, Jogador jogador) {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("home/listTimeJog");
-		mv.addObject("listTime", repTime.getById(id));
-		mv.addObject("listJog", repJog.findAll());
-		MeuTime time = repTime.getById(id);
-		time.setJogador(time.getJogador().add(jogador));
-		repTime.save(time);
-		
-	return mv;
-		}
+//	//ADICIONAR JOGADORES
+//	@PostMapping
+//	public ModelAndView addJog(@PathVariable("id") Integer id, Jogador ojogador) {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("home/listTimeJog");
+//		mv.addObject("listTime", repTime.getById(id));
+//		mv.addObject("listJog", repJog.findAll());
+//		MeuTime time = repTime.getById(id);
+//		time.setJogador(time.getJogador().add(ojogador));
+//		repTime.save(time);
+//		
+//	return mv;
+//		}
 	
 	//PESQUISAR JOGADOR
 	@PostMapping("**/pesquisarJogador")
